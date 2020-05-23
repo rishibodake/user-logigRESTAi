@@ -41,4 +41,13 @@ public class LoginAndRegisterService {
         }
         return "Invalid EmailId";
     }
+
+    public String deleteUser(UserLoginDTO userLoginDTO) {
+        User user = userRepository.findByEmail(userLoginDTO.getEmail());
+        if(user != null && user.getPassword().equals(userLoginDTO.getPassword())){
+            userRepository.delete(user);
+            return "Account Deleted Successfully";
+        }
+        return "No User Is Associated with this userId";
+    }
 }

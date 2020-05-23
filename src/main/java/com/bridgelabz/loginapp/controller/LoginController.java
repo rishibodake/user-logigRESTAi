@@ -28,5 +28,11 @@ public class LoginController {
         return loginAndRegisterService.updatePassword(userLoginDTO);
     }
 
+    @PostMapping("/remove")
+    public String deleteUser(@RequestBody UserLoginDTO userLoginDTO){
+        return loginAndRegisterService.deleteUser(userLoginDTO);
+    }
+
+
 }
 
