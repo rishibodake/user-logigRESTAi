@@ -31,4 +31,14 @@ public class LoginAndRegisterService {
         }
         return "Invalid User Credentials";
     }
+
+    public String updatePassword(UserLoginDTO userLoginDTO) {
+        User user = userRepository.findByEmail(userLoginDTO.getEmail());
+        if(user != null){
+            user.setPassword(userLoginDTO.getPassword());
+            userRepository.save(user);
+            return "Password Updated Successfully";
+        }
+        return "Invalid EmailId";
+    }
 }

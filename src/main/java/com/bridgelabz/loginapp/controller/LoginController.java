@@ -23,5 +23,10 @@ public class LoginController {
         return loginAndRegisterService.login(userLoginDTO);
     }
 
+    @PostMapping("/forgot")
+    public String forgotPassword(@RequestBody UserLoginDTO userLoginDTO){
+        return loginAndRegisterService.updatePassword(userLoginDTO);
+    }
+
 }
 
