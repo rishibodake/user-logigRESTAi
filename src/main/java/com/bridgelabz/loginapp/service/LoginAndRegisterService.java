@@ -21,4 +21,14 @@ public class LoginAndRegisterService {
         }
         return "User Is Already Registered with this Email Id";
     }
+
+    public String login(UserLoginDTO userLoginDTO) {
+        User user = userRepository.findByEmail(userLoginDTO.getEmail());
+        if (user != null) {
+            if (user.getPassword().equals(userLoginDTO.getPassword())) {
+                return "Welcome " + user.getFirstName() + " " + user.getLastName() + " You are logged in";
+            }
+        }
+        return "Invalid User Credentials";
+    }
 }

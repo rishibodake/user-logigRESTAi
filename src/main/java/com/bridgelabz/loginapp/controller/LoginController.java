@@ -17,5 +17,11 @@ public class LoginController {
         return loginAndRegisterService.register(user);
     }
 
+
+    @PostMapping("/login")
+    public String loginUser(@RequestBody UserLoginDTO userLoginDTO){
+        return loginAndRegisterService.login(userLoginDTO);
+    }
+
 }
 
