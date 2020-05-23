@@ -50,4 +50,10 @@ public class LoginAndRegisterService {
         }
         return "No User Is Associated with this userId";
     }
+
+
+    public String accountDetails(String email) {
+        User user = userRepository.findByEmail(email);
+        return user.toString();
+    }
 }

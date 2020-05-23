@@ -33,6 +33,11 @@ public class LoginController {
         return loginAndRegisterService.deleteUser(userLoginDTO);
     }
 
+    @GetMapping("/{email}")
+    public String readUser(@PathVariable String email){
+        return loginAndRegisterService.accountDetails(email);
+    }
+
 
 }
 
