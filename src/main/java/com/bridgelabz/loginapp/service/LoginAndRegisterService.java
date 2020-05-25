@@ -52,8 +52,8 @@ public class LoginAndRegisterService {
     }
 
 
-    public String accountDetails(String email) {
-        User user = userRepository.findByEmail(email);
+    public String accountDetails(UserLoginDTO userLoginDTO) {
+        User user = userRepository.findByEmail(userLoginDTO.getEmail());
         return user.toString();
     }
 }

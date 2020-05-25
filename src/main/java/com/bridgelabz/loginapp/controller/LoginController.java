@@ -6,11 +6,14 @@ import com.bridgelabz.loginapp.service.LoginAndRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
+
 @RestController
 @RequestMapping("/user")
 public class LoginController {
     @Autowired
     private LoginAndRegisterService loginAndRegisterService;
+
 
     @PostMapping("/register")
     public String registerUser(@RequestBody User user){
@@ -33,9 +36,9 @@ public class LoginController {
         return loginAndRegisterService.deleteUser(userLoginDTO);
     }
 
-    @GetMapping("/{email}")
-    public String readUser(@PathVariable String email){
-        return loginAndRegisterService.accountDetails(email);
+    @PostMapping("/view")
+    public String readUser(@RequestBody UserLoginDTO userLoginDTO){
+        return loginAndRegisterService.accountDetails(userLoginDTO);
     }
 
 
