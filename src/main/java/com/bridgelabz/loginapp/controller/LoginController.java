@@ -1,3 +1,10 @@
+/*
+@file         :LoginController.java
+@overview     :This Class is users entry point when we hit the url
+@author       :Hrishikesh M Bodake (rishibodake@gmail.com)
+@version      :1.0
+@since        :20/5/2020
+ */
 package com.bridgelabz.loginapp.controller;
 
 import com.bridgelabz.loginapp.dto.UserLoginDTO;
@@ -6,7 +13,6 @@ import com.bridgelabz.loginapp.service.LoginAndRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.security.RolesAllowed;
 
 @RestController
 @RequestMapping("/user")

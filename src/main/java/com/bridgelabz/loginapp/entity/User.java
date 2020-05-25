@@ -1,3 +1,10 @@
+/*
+@file         :User.java
+@overview     :User Entity class that will create tables into the database
+@author       :Hrishikesh M Bodake (rishibodake@gmail.com)
+@version      :1.0
+@since        :20/5/2020
+ */
 package com.bridgelabz.loginapp.entity;
 
 import javax.persistence.*;

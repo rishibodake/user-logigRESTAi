@@ -1,3 +1,10 @@
+/*
+@file         :LoginAndRegisterService.java
+@overview     :This class contains all the methods that will do all the CRUD operations
+@author       :Hrishikesh M Bodake (rishibodake@gmail.com)
+@version      :1.0
+@since        :20/5/2020
+ */
 package com.bridgelabz.loginapp.service;
 
 import com.bridgelabz.loginapp.dto.UserLoginDTO;
