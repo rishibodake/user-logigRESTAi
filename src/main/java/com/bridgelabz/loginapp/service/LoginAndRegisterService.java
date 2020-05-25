@@ -13,6 +13,8 @@ import com.bridgelabz.loginapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.regex.Pattern;
+
 @Service
 public class LoginAndRegisterService {
 
@@ -21,12 +23,18 @@ public class LoginAndRegisterService {
 
     public String register(User user) {
 
-        User findUser =  userRepository.findByEmail(user.getEmail());
-        if(findUser == null){
-            userRepository.save(user);
-            return "User Registered";
+        final Pattern VALID_EMAIL_ADDRESS_REGEX =
+                Pattern.compile("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$", Pattern.CASE_INSENSITIVE);
+
+        if(user.getEmail().matches(String.valueOf(VALID_EMAIL_ADDRESS_REGEX))) {
+            User findUser = userRepository.findByEmail(user.getEmail());
+            if (findUser == null) {
+                userRepository.save(user);
+                return "User Registered";
+            }
+            return "User Is Already Registered with this Email Id";
         }
-        return "User Is Already Registered with this Email Id";
+        return "Invalid Email... Please Check";
     }
 
     public String login(UserLoginDTO userLoginDTO) {
@@ -46,7 +54,7 @@ public class LoginAndRegisterService {
             userRepository.save(user);
             return "Password Updated Successfully";
         }
-        return "Invalid EmailId";
+        return "InValid Email Id";
     }
 
     public String deleteUser(UserLoginDTO userLoginDTO) {
